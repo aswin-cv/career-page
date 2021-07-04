@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Career Page</title>
+  <link rel="icon" href="https://play-lh.googleusercontent.com/E5wrRW1UNjMFrVX6Q--cgGGgvCU9mFLEVpf0GFrAXvYGy7a1t2xY8rUYcuih4qy7vA=w144-h144-n-rw" />
+
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <link rel="stylesheet" href="./index.css"/>
+
+
+</head>
+
+<body class="bg-light">
+
+  <form id="form" name="form" method="POST" enctype="multipart/form-data" action="/" onsubmit="return validateRecaptcha();">
+
+    <div class="container my-1 ">
+        <!-- Logo -->
+        <div class="d-flex justify-content-center ">
+          <img class="col-lg-2 col-md-3 col-sm-3 bt" src="./images/VMS.png" alt="logo">
+        </div>
+
+        <!-- 1st Row -->
+
+        <div class="d-flex justify-content-center text-center">
+            <h3>
+                <p>Please Furnish the Details and <span class="text-danger">Upload Your Resume</span></p>
+            </h3>          
+        </div>
+        <div class="d-flex justify-content-center text-center">
+            <h6>Fields marked with (<span class="text-danger">*</span>) are mandatory</h6>
+        </div>
+
+        <div class="row d-flex justify-content-center my-2">
+            <div class="col-sm-4 xs req col-md-4 col-lg-4 ">
+                <label class="required">Name </label>
+                <input id="text" style="text-transform: capitalize" placeholder="Enter Your Name"  class="req form-control required name" id="name" name="name" required> 
+            </div><!-- /col -->
+
+            <div class="col-sm-4 xs col-md-4 col-lg-4 req inputBox">
+                <label class="required">E-Mail Address </label>
+                <!-- pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" -->
+                <input type="email" placeholder="Enter Your E-Mail" class="form-control" id="email" name="email" required>
+                <span class="text-danger" id="email_error"></span>
+            </div><!-- /col -->
+
+            <!-- <div class="col-sm-4 xs text-center col-md-4 col-lg-4"> -->
+            <div class="col-sm-4 xs col-md-4  col-lg-4 ">         
+                <label class="required">Mobile Number </label>
+                <form id="form1" action="#">
+                    <div class="inputBox">
+                        <!-- <input type="tel" pattern="[0-9]{10}" placeholder="Mobile Number *" class="form-control" id="mobile" name="mobile" required> -->
+                        <input id="mobile" class="form-control mt-4" type="tel" name="mobile" class="form-control" placeholder="Enter Mobile Number"required/>
+                        <!-- <div class="invalid-tooltip" id="mobile-tooltip">Enter Valid Mobile Number</div> -->
+                    </div>
+                </form>
+                <span class="text-danger" id="mobile_error"></span>
+            </div><!-- /col -->
+
+        </div><!-- /row -->
+
+
+        <!-- 2nd Row -->
+
+        <div class="row d-flex justify-content-center my-3">
+        
+        
+            <div class="col-sm-4 xs col-sm-4  col-lg-4 req">
+                <label class="required">Degree </label>
+                <select id="degree" name="degree" default="BE" required class="form-control">
+                    <option value="" disabled selected>Select Your Degree</option>
+                    <option value="BTech">B.Tech</option>
+                    <option value="BE">BE</option>
+                    <option value="Bsc">B.Sc</option>
+                    <option value="Msc">M.Sc</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div><!-- /col -->
+
+            <div class="col-sm-4 xs col-sm-4 col-lg-4 ">
+                <label class="required">Department </label>
+                
+                <span class="col-sm-12 col-sm-12 col-lg-12">
+                
+                    <select name="department" id="department" required class="form-control">
+                    <option value="" disabled selected>Select Your Department</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="Type your degree here" id="other_degree">
+                    <input type="text" class="form-control" placeholder="Type your department here" id="other_department">
+                    <input class="form-check-input" type="checkbox" value="1" id="back_to_select_dept">
+                    <label class="form-check-label" for="back_to_select_dept" id="back_to_select_dept_text">
+                    Select from drop-down
+                    </label>
+                </span>
+            </div>
+
+  
+            <div class="col-sm-4 xs col-md-4 col-lg-4 req">
+                <label class="required">College / Company </label>
+                <span class="col-sm-12 col-sm-12 col-lg-12">
+                    <input type="text" list="collegeq" class="form-control" placeholder="Enter Your College / Company" id="college" name="college">
+                    <datalist id="collegeq">
+                    <option value="Dr.NGP Institute of Technology"></option>
+                    <option value="PSG Institute Of Technology"></option>
+                    <option value="Kumaraguru College of Technology"></option>
+                    <option value="Indian Institute of Technology"></option>
+                    <option value="Krishna Institute of Technology"></option>
+                    <option value="Loyola Institute of Technology"></option>
+                    <option value="Mahendra Institute of Technology"></option>
+                    <option value="KPR Institute of Technology"></option>
+                    <option value="Coimbatore Institute Of Technology"></option>
+                    <option value="Vellore Institute of Technology (VIT)"></option>
+                    <option value="SRM University"></option>
+                    <option value="Birla Institute of Technology and Sciences (BITS) Pilani"></option>
+                    <option value="RV College of Engineering"></option>
+                    <option value="Sastra University"></option>
+                    <option value="SSN College of Engineering"></option>
+                    <option value="Manipal Institute of Technology (MIT)"></option>
+                    <option value="BMS College of Engineering"></option>
+                    <option value="Ramaiah Institute of Technology"></option>
+                    <option value="Thiagarajar College of Engineering"></option>
+                    <option value="PES University"></option>
+                    <option value="Chaitanya Bharti Institute of Technology"></option>
+                    <option value="Adhiyamaan College of Engineering"></option>
+                    <option value="GITAM University"></option>
+                    <option value="Vel Tech"></option>
+                    <option value="Siddaganga Institute of Technology"></option>
+                    <option value="KL University"></option>
+                    <option value="Kongu Engineering College"></option>
+                    <option value="Hindustan University"></option>
+                    <option value="Jyothi Engineering College"></option>
+                    <option value="TKM College of Engineering"></option>
+                    <option value="Christ University"></option>
+                    <option value="Acharya Institute of Technology"></option>
+                    <option value="Kalasalingam University"></option>
+                    <option value="Karunya University"></option>
+                    <option value="Rajeev Gandhi Memorial College of Engineering and Technology"></option>
+                    <option value="Sri Venkateshwara College of Engineering"></option>
+                    <option value="Goverment College of Technology"></option>                    
+                  </datalist>
+
+                    <!-- <input class="form-check-input" type="checkbox" value="1" id="back_to_select_college"> -->
+                    <!-- <label class="form-check-label" for="back_to_select_college" id="back_to_select_college_text"> -->
+                </span>
+            </div>
+
+
+        </div><!-- /row -->
+
+        <!-- 3rd Row -->
+
+        <div class="row d-flex justify-content-center flex-wrap my-3">
+            <div class="col-sm-4 xs col-md-4 col-lg-2">
+                <label class="required">10th(%) </label>
+                <!-- <input type="text" pattern="^\d*(\.\d{0,2})?$" id='ssl' name='sslc' class='form-control percent' placeholder="(%)" required > -->
+                <input type="number" step="0.01" min="0" max="100" id="ssl" name="sslc" class="form-control percent" placeholder="(%)" required>
+            </div><!-- /col -->
+
+            <div class="col-sm-4 xs col-md-4 col-lg-2">
+                <label class="required">12th/Dip(%) </label>
+                <input type="number" min="0" max="100" step="0.01" class="form-control percent" id="hsc" name="hsc" placeholder="(%)" required>
+            </div><!-- /col -->
+
+            <div class="col-sm-4 xs col-md-4 col-lg-2">
+                <label class="required">UG(%) </label>
+                <input type="number" min="0" max="100" step="0.01" class="form-control percent" id="ug" name="ug" placeholder="(%)" required>
+            </div><!-- /col -->
+
+            <div class="col-sm-4 xs col-md-4 col-lg-2">
+                <label class="">PG(%) </label>
+                <input type="number" min="0" max="100" step="0.01" class="form-control percent" id="pg" name="pg" placeholder="(%)">
+            </div><!-- /col -->
+
+            <div class="col-sm-4 xs col-md-4 col-lg-2">
+                <label class="required">Year of Passing </label>
+                <select id="years" name="years" class="form-control" placeholder="Year" required>
+                    <option value="" disabled selected>Year of Passing</option>
+                </select>
+            </div><!-- /col -->
+
+            <div class="col-sm-4 xs col-md-4 col-lg-2">
+                <label class="required">Years of Experience </label>
+                <input id="exp" name="exp" type="number" min="0" max="50" class="form-control" placeholder="No. of Years" required>
+            </div><!-- /col -->
+
+        </div><!-- /row -->
+
+        <!-- 4th Row -->
+
+        <div class="row d-flex justify-content-center flex-wrap my-3">
+            <div class="col-sm-4 xs col-md-4 col-lg-4">
+                <label class="">Social Profile</label>
+                <input id="Social" name="portfolio" class="form-control" type="url" placeholder="Social profile (Portfolio, GitHub)">
+            </div>    
+        
+
+            <!--  -->
+        
+            <div style="position: relative;float: left;" class="col-sm-4 xs col-md-4 col-lg-4">
+                <label class="required">Location </label>
+                <input type="text" list ="loc" default="Cbe" placeholder="Current Location (City)" id="location" class="form-control" name="location" required>
+            <!-- "Ariyalur", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kancheepuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Perambalur", "Pudukottai", "Ramanathapuram", "Salem", "Sivaganga", "Thanjavur", "Nilgiris", "Theni", "Thiruvallur", "Thiruvannamalai", "Thiruvarur", "Thirunelveli", " Tiruppur", "Trichirappalli", " Uticorin", "Vellore", "Villupuram ", " Virudhunagar" -->
+                <datalist id="loc">
+                <option value="Ariyalur"></option>
+                <option value="Chennai"></option>
+                <option value="Coimbatore"></option>
+                <option value="Cuddalore"></option>
+                <option value="Dharmapuri"></option>
+                <option value="Dharapuram"></option>
+                <option value="Dindigul"></option>
+                <option value="Erode"></option>
+                <option value="Kancheepuram"></option>
+                <option value="Kanyakumari"></option>
+                <option value="Karur"></option>
+                <option value="Krishnagiri"></option>
+                <option value="Madurai"></option>
+                <option value="Nagapattinam"></option>
+                <option value="Perambalur"></option>
+                <option value="Namakkal"></option>
+                <option value="Pudukottai"></option>
+                <option value="Ramanathapuram"></option>
+                <option value="Salem"></option>
+                <option value="Sivaganga"></option>
+                <option value="Thanjavur"></option>
+                <option value="Nilgiris"></option>
+                <option value="Theni"></option>
+                <option value="Thiruvallur"></option>
+                <option value="Thirunelveli"></option>
+                <option value="Thiruvarur"></option>
+                <option value="Thiruvannamalai"></option>
+                <option value="Trichirappalli"></option>
+                <option value="Tiruppur"></option>
+                <option value="Vellore"></option>
+                <option value="Uticorin"></option>
+                <option value="Villupuram "></option>
+                <option value=" Virudhunagar"></option>
+                <option value="Bastar"></option>
+                <option value="Bijapur"></option>
+                <option value="Bilaspur"></option>
+                <option value="Dantewada"></option>
+                <option value="Dhamtari"></option>
+                <option value="Durg"></option>
+                <option value="Jashpur"></option>
+                <option value="Janjgir-Champa"></option>
+                <option value="Korba"></option>
+                <option value="Koriya"></option>
+                <option value="Kanker"></option>
+                <option value="Kabirdham (formerly Kawardha)"></option>
+                <option value="Mahasa"></option>
+                <option value="Narayanpur"></option>                 
+                <option value="Raigarh"></option>
+                <option value="Rajnandgaon"></option>
+                <option value="Raipur"></option>
+                <option value="Surajpur"></option>
+                <option value="Surguja"></option>
+                <option value="Araria"></option>
+                <option value="Arwal"></option>
+                <option value="Aurangabad"></option>
+                <option value="Banka"></option>
+                <option value="Begusarai"></option>
+                <option value="Bhagalpur"></option>
+                <option value="Bhojpur"></option>
+                <option value="Buxar"></option>
+                <option value="Darbhanga"></option>
+                <option value="East Champaran"></option>
+                <option value="Gaya"></option>
+                <option value="Gopalganj"></option>
+                <option value="Jamui"></option>
+                <option value="Jehanabad"></option>
+                <option value="Kaimur"></option>
+                <option value="Katihar"></option>
+                <option value="Khagaria"></option>
+                <option value="Kishanganj"></option>
+                <option value="Lakhisarai"></option>
+                <option value="Madhepura"></option>
+                <option value="Madhubani"></option>
+                <option value="Munger"></option>
+                <option value="Muzaffarpur"></option>
+                <option value="Nalanda"></option>
+                <option value="Nawada"></option>
+                <option value="Patna"></option>
+                <option value="Purnia"></option>
+                <option value="Rohtas"></option>
+                <option value="Saharsa"></option>
+                <option value="Samastipur"></option>
+                <option value="Saran"></option>
+                <option value="Sheikhpura"></option>
+                <option value="Sheohar"></option>
+                <option value="Sitamarhi"></option>
+                <option value="Siwan"></option>
+                <option value="Supaul"></option>
+                <option value="Vaishali"></option>
+                <option value="West Champaran"></option>
+                <option value="Baksa"></option>
+                <option value="Barpeta"></option>
+                <option value="Bongaigaon"></option>
+                <option value="Cachar"></option>
+                <option value="Chirang"></option>
+                <option value="Darrang"></option>
+                <option value="Dhemaji"></option>
+                <option value="Dima Hasao"></option>
+                <option value="Dhubri"></option>
+                <option value="Dibrugarh"></option>
+                <option value="Goalpara"></option>
+                <option value="Golaghat"></option>
+                <option value="Hailakandi"></option>
+                <option value="Jorhat"></option>
+
+                <option value="Kamrup"></option>
+                <option value="Kamrup Metropolitan"></option>
+                <option value="Karbi Anglong"></option>
+                <option value="Karimganj"></option>
+                <option value="Kokrajhar"></option>
+                <option value="Lakhimpur"></option>
+                <option value="Morigaon"></option>
+                <option value="Nagaon"></option>
+                <option value="Nalbari"></option>
+                <option value="Sivasagar"></option>
+                <option value="Sonitpur"></option>
+                <option value="Tinsukia"></option>
+                <option value="Udalguri"></option>
+                <option value="Anjaw"></option>
+                <option value="Changlang"></option>
+                <option value="Dibang Valley"></option>
+                <option value="East Siang"></option>
+                <option value="East Kameng"></option>
+                <option value="Kurung Kumey"></option>
+                <option value="Lohit"></option>
+                <option value="Longding"></option>
+                <option value="Lower Dibang Valley"></option>
+                <option value="Lower Subansiri"></option>
+                <option value="Papum Pare"></option>
+                <option value="Kadapa"></option>
+                <option value="Tawang"></option>
+                <option value="Tirap"></option>
+                <option value="Upper Siang"></option>
+                <option value="Upper Subansiri"></option>
+                <option value="West Kameng"></option>
+                <option value="West Siang"></option>
+                <option value="Anantapur"></option>
+                <option value="Chittoor"></option>
+                <option value="East Godavari"></option>
+                <option value="Guntur"></option>
+                <option value="Krishna"></option>
+                <option value="Kurnool"></option>
+                <option value="Prakasam"></option>
+                <option value="Srikakulam"></option>
+                <option value="SriPotti Sri Ramulu Nellore"></option>
+                <option value="Vishakhapatnam"></option>
+                <option value="Vizianagara"></option>
+                <option value="West Godavari"></option>
+                <option value="Cudappah"></option>
+                <option value="Baddi"></option>
+                <option value="Baitalpur"></option>
+                <option value="Chamba"></option>
+                <option value="Dharamsala"></option>
+                <option value="Hamirpur"></option>
+                <option value="Kangra"></option>
+                <option value="Kinnaur"></option>
+                <option value="Kullu"></option>
+                <option value="Lahaul & Spiti"></option>
+                <option value="Mandi"></option>
+                <option value="Simla"></option>
+                <option value="Sirmaur"></option>
+                <option value="Solan"></option>
+                <option value="Una"></option>
+                <option value="Ambala"></option>
+                <option value="Bhiwani"></option>
+                <option value="Faridabad"></option>
+                <option value="Fatehabad"></option>
+                <option value="Gurgaon"></option>
+                <option value="Hissar"></option>
+                <option value="Jhajjar"></option>
+                <option value="Jind"></option>
+                <option value="Karnal"></option>
+                <option value="Kaithal"></option>
+                <option value="Kurukshetra"></option>
+                <option value="Mahendragarh"></option>
+                <option value="Mewat"></option>
+                <option value="Palwal"></option>
+                <option value="Panchkula"></option>
+                <option value="Panipat"></option>
+                <option value="Rewari"></option>
+                <option value="Rohtak"></option>
+                <option value="Sirsa"></option>
+                <option value="Sonipat"></option>
+                <option value="Yamuna Nagar"></option>
+                <option value="Ahmedabad"></option>
+                <option value="Amreli district"></option>
+                <option value="Anand"></option>
+                <option value="Aravalli"></option>
+                <option value="Banaskantha"></option>
+                <option value="Bharuch"></option>
+                <option value="Bhavnagar"></option>
+                <option value="Dahod"></option>
+                <option value="Dang"></option>
+                <option value="Gandhinagar"></option>
+                <option value="Jamnagar"></option>
+                <option value="Junagadh"></option>
+                <option value="Kutch"></option>
+                <option value="Kheda"></option>
+                <option value="Mehsana"></option>
+                <option value="Narmada"></option>
+                <option value="Navsari"></option>
+                <option value="Patan"></option>
+                <option value="Panchmahal"></option>
+                <option value="Porbandar"></option>
+                <option value="Rajkot"></option>
+                <option value="Sabarkantha"></option>
+                <option value="Surendranagar"></option>
+                <option value="Surat"></option>
+                <option value="Tapi"></option>
+                <option value="Vadodara"></option>
+                <option value="Valsad"></option>
+                <option value="Chapora"></option>
+                <option value="Dabolim"></option>
+                <option value="Madgaon"></option>
+                <option value="Marmugao (Marmagao)"></option>
+                <option value="Panaji Port"></option>
+                <option value="Panjim"></option>
+                <option value="Pellet Plant Jetty/Shiroda"></option>
+                <option value="Talpona"></option>
+                <option value="Vasco da Gama"></option>
+                <option value="Delhi"></option>
+                <option value="New Delhi"></option>
+                <option value="North Delhi"></option>
+                <option value="Noida"></option>
+                <option value="Patparganj"></option>
+                <option value="Sonabarsa"></option>
+                <option value="Tughlakabad"></option>
+                <option value="Daman"></option>
+                <option value="Diu"></option>
+                <option value="Amal"></option>
+                <option value="Silvassa"></option>
+                <option value="Aizawl"></option>
+                <option value="Champhai"></option>
+                <option value="Kolasib"></option>
+                <option value="Lawngtlai"></option>
+                <option value="Lunglei"></option>
+                <option value="Mamit"></option>
+                <option value="Saiha"></option>
+                <option value="Serchhip"></option>
+                <option value="Baghamara"></option>
+                <option value="Balet"></option>
+                <option value="Barsora"></option>
+                <option value="Bolanganj"></option>
+                <option value="Dalu"></option>
+                <option value="Dawki"></option>
+                <option value="Ghasuapara"></option>
+                <option value="Mahendraganj"></option>
+                <option value="Moreh"></option>
+                <option value="Ryngku"></option>
+                <option value="Shella Bazar"></option>
+                <option value="Shillong"></option>
+                <option value="Bishnupur"></option>
+                <option value="Churachandpur"></option>
+                <option value="Chandel"></option>
+                <option value="Imphal East"></option>
+                <option value="Senapati"></option>
+                <option value="Tamenglong"></option>
+                <option value="Thoubal"></option>
+                <option value="Ukhrul"></option>
+                <option value="Imphal West"></option>
+                <option value="Ahmednagar"></option>
+                <option value="Akola"></option>
+                <option value="Alibag"></option>
+                <option value="Amaravati"></option>
+                <option value="Arnala"></option>
+                <option value="Aurangabad"></option>
+                <option value="Aurangabad"></option>
+                <option value="Bandra"></option>
+                <option value="Bassain"></option>
+                <option value="Belapur"></option>
+                <option value="Bhiwandi"></option>
+                <option value="Bhusaval"></option>
+                <option value="Borliai-Mandla"></option>
+                <option value="Chandrapur"></option>
+                <option value="Dahanu"></option>
+                <option value="Daulatabad"></option>
+                <option value="Dighi (Pune)"></option>
+                <option value="Dombivali"></option>
+                <option value="Goa"></option>
+                <option value="Jaitapur"></option>
+                <option value="Jalgaon"></option>
+                <option value="Jawaharlal Nehru (Nhava Sheva)"></option>
+                <option value="Kalyan"></option>
+                <option value="Karanja"></option>
+                <option value="Kelwa"></option>
+                <option value="Khopoli"></option>
+                <option value="Kolhapur"></option>
+                <option value="Lonavale"></option>
+                <option value="Malegaon"></option>
+                <option value="Malwan"></option>
+                <option value="Manori"></option>
+                <option value="Mira Bhayandar"></option>
+                <option value="Miraj"></option>
+                <option value="Mumbai (ex Bombay)"></option>
+                <option value="Murad"></option>
+                <option value="Nagapur"></option>
+                <option value="Nagpur"></option>
+                <option value="Nalasopara"></option>
+                <option value="Nanded"></option>
+                <option value="Nandgaon"></option>
+                <option value="Nasik"></option>
+                <option value="Navi Mumbai"></option>
+                <option value="Nhave"></option>
+                <option value="Osmanabad"></option>
+                <option value="Palghar"></option>
+                <option value="Panvel"></option>
+                <option value="Pimpri"></option>
+                <option value="Pune"></option>
+                <option value="Ratnagiri"></option>
+                <option value="Sholapur"></option>
+                <option value="Shrirampur"></option>
+                <option value="Shriwardhan"></option>
+                <option value="Tarapur"></option>
+                <option value="Thana"></option>
+                <option value="Thane"></option>
+                <option value="Trombay"></option>
+                <option value="Varsova"></option>
+                <option value="Vengurla"></option>
+                <option value="Virar"></option>
+                <option value="Wada"></option>
+                <option value="Alirajpur"></option>
+                <option value="Anuppur"></option>
+                <option value="Ashoknagar"></option>
+                <option value="Balaghat"></option>
+                <option value="Barwani"></option>
+                <option value="Betul"></option>
+                <option value="Bhilai"></option>
+                <option value="Bhind"></option>
+                <option value="Bhopal"></option>
+                <option value="Burhanpur"></option>
+                <option value="Chhatarpur"></option>
+                <option value="Chhindwara"></option>
+                <option value="Damoh"></option>
+                <option value="Dewas"></option>
+                <option value="Dhar"></option>
+                <option value="Guna"></option>
+                <option value="Gwalior"></option>
+                <option value="Hoshangabad"></option>
+                <option value="Indore"></option>
+                <option value="Itarsi"></option>
+                <option value="Jabalpur"></option>
+                <option value="Khajuraho"></option>
+                <option value="Khandwa"></option>
+                <option value="Khargone"></option>
+                <option value="Malanpur"></option>
+                <option value="Malanpuri (Gwalior)"></option>
+                <option value="Mandla"></option>
+                <option value="Mandsaur"></option>
+                <option value="Morena"></option>
+                <option value="Narsinghpur"></option>
+                <option value="Neemuch"></option>
+                <option value="Panna"></option>
+                <option value="Pithampur"></option>
+                <option value="Raipur"></option>
+                <option value="Raisen"></option>
+                <option value="Ratlam"></option>
+                <option value="Rewa"></option>
+                <option value="Sagar"></option>
+                <option value="Satna"></option>
+                <option value="Sehore"></option>
+                <option value="Seoni"></option>
+                <option value="Shahdol"></option>
+                <option value="Singrauli"></option>
+                <option value="Ujjain"></option>
+                <option value="Alappuzha"></option>
+                <option value="Ernakulam"></option>
+                <option value="Idukki"></option>
+                <option value="Kannur"></option>
+                <option value="Kasaragod"></option>
+                <option value="Kollam"></option>
+                <option value="Kottayam"></option>
+                <option value="Kozhikode"></option>
+                <option value="Malappuram"></option>
+                <option value="Palakkad"></option>
+                <option value="Pathanamthitta"></option>
+                <option value="Thrissur"></option>
+                <option value="Thiruvananthapuram"></option>
+                <option value="Wayanad"></option>
+                <option value="Bagalkot"></option>
+                <option value="Bangalore"></option>
+                <option value="Bangalore Urban"></option>
+                <option value="Belgaum"></option>
+                <option value="Bellary"></option>
+                <option value="Bidar"></option>
+                <option value="Bijapur"></option>
+                <option value="Chamarajnagar"></option>
+                <option value="Chikkamagaluru"></option>
+                <option value="Chikkaballapur"></option>
+                <option value="Chitradurga"></option>
+                <option value="Davanagere"></option>
+                <option value="Dharwad"></option>
+                <option value="Dakshina Kannada"></option>
+                <option value="Gadag"></option>
+                <option value="Gulbarga"></option>
+                <option value="Hassan"></option>
+                <option value="Haveri district"></option>
+                <option value="Kodagu"></option>
+                <option value="Kolar"></option>
+                <option value="Koppal"></option>
+                <option value="Mandya"></option>
+                <option value="Mysore"></option>
+                <option value="Raichur"></option>
+                <option value="Shimoga"></option>
+                <option value="Tumkur"></option>
+                <option value="Udupi"></option>
+                <option value="Uttara Kannada"></option>
+                <option value="Ramanagara"></option>
+                <option value="Yadgir"></option>
+                <option value="Bokaro"></option>
+                <option value="Chatra"></option>
+                <option value="Deoghar"></option>
+                <option value="Dhanbad"></option>
+                <option value="Dumka"></option>
+                <option value="East Singhbhum"></option>
+                <option value="Garhwa"></option>
+                <option value="Giridih"></option>
+                <option value="Godda"></option>
+                <option value="Gumla"></option>
+                <option value="Hazaribag"></option>
+                <option value="Jamtara"></option>
+                <option value="Khunti"></option>
+                <option value="Koderma"></option>
+                <option value="Latehar"></option>
+                <option value="Lohardaga"></option>
+                <option value="Pakur"></option>
+                <option value="Palamu"></option>
+                <option value="Ramgarh"></option>
+                <option value="Ranchi"></option>
+                <option value="Sahibganj"></option>
+                <option value="Seraikela Kharsawan"></option>
+                <option value="Simdega"></option>
+                <option value="West Singhbhum"></option>
+                <option value="Jammu"></option>
+                <option value="Leh"></option>
+                <option value="Rajouri"></option>
+                <option value="Srinagar"></option>
+                <option value="Alipurduar"></option>
+                <option value="Bankura"></option>
+                <option value="Bardhaman"></option>
+                <option value="Birbhum"></option>
+                <option value="Cooch Behar"></option>
+                <option value="Dakshin Dinajpur"></option>
+                <option value="Darjeeling"></option>
+                <option value="Hooghly"></option>
+                <option value="Howrah"></option>
+                <option value="Jalpaiguri"></option>
+                <option value="Kolkata"></option>
+                <option value="Maldah"></option>
+                <option value="Murshidabad"></option>
+                <option value="Nadia"></option>
+                <option value="North 24 Parganas"></option>
+                <option value="Paschim Medinipur"></option>
+                <option value="Purba Medinipur"></option>
+                <option value="Purulia"></option>
+                <option value="South 24 Parganas"></option>
+                <option value="Uttar Dinajpur"></option>
+                <option value="Almora"></option>
+                <option value="Badrinath"></option>
+                <option value="Bangla"></option>
+                <option value="Barkot"></option>
+                <option value="Bazpur"></option>
+                <option value="Chamoli"></option>
+                <option value="Chopra"></option>
+                <option value="Dehra Dun"></option>
+                <option value="Dwarahat"></option>
+                <option value="Garhwal"></option>
+                <option value="Haldwani"></option>
+                <option value="Hardwar"></option>
+                <option value="Haridwar"></option>
+                <option value="Jamal"></option>
+                <option value="Jwalapur"></option>
+                <option value="Kalsi"></option>
+                <option value="Kashipur"></option>
+                <option value="Mall"></option>
+                <option value="Mussoorie"></option>
+                <option value="Nahar"></option>
+                <option value="Naini"></option>
+                <option value="Pantnagar"></option>
+                <option value="Pauri"></option>
+                <option value="Pithoragarh"></option>
+                <option value="Rameshwar"></option>
+                <option value="Rishikesh"></option>
+                <option value="Rohni"></option>
+                <option value="Roorkee"></option>
+                <option value="Sama"></option>
+                <option value="Saur"></option>
+                <option value="Agra"></option>
+                <option value="Allahabad"></option>
+                <option value="Auraiya"></option>
+                <option value="Banbasa"></option>
+                <option value="Bareilly"></option>
+                <option value="Berhni"></option>
+                <option value="Bhadohi"></option>
+                <option value="Dadri"></option>
+                <option value="Dharchula"></option>
+                <option value="Gandhar"></option>
+                <option value="Gauriphanta"></option>
+                <option value="Ghaziabad"></option>
+                <option value="Gorakhpur"></option>
+                <option value="Gunji"></option>
+                <option value="Jarwa"></option>
+                <option value="Jhulaghat (Pithoragarh)"></option>
+                <option value="Kanpur"></option>
+                <option value="Katarniyaghat"></option>
+                <option value="Khunwa"></option>
+                <option value="Loni"></option>
+                <option value="Lucknow"></option>
+                <option value="Meerut"></option>
+                <option value="Moradabad"></option>
+                <option value="Muzaffarnagar"></option>
+                <option value="Nepalgunj Road"></option>
+                <option value="Pakwara (Moradabad)"></option>
+                <option value="Pantnagar"></option>
+                <option value="Saharanpur"></option>
+                <option value="Sonauli"></option>
+                <option value="Surajpur"></option>
+                <option value="Tikonia"></option>
+                <option value="Varanasi"></option>
+                <option value="Agartala"></option>
+                <option value="Dhalaighat"></option>
+                <option value="Kailashahar"></option>
+                <option value="Kamalpur"></option>
+                <option value="Kanchanpur"></option>
+                <option value="Kel Sahar Subdivision"></option>
+                <option value="Khowai"></option>
+                <option value="Khowaighat"></option>
+                <option value="Mahurighat"></option>
+                <option value="Old Raghna Bazar"></option>
+                <option value="Sabroom"></option>
+                <option value="Srimantapur"></option>
+                <option value="Adilabad"></option>
+                <option value="Hyderabad"></option>
+                <option value="Karimnagar"></option>
+                <option value="Mahbubnagar"></option>
+                <option value="Medak"></option>
+                <option value="Nalgonda"></option>
+                <option value="Nizamabad"></option>
+                <option value="Ranga Reddy"></option>
+                <option value="Warangal"></option>
+                <option value="Chamurci"></option>
+                <option value="Gangtok"></option>
+                <option value="Ajmer"></option>
+                <option value="Banswara"></option>
+                <option value="Barmer"></option>
+                <option value="Barmer Rail Station"></option>
+                <option value="Basni"></option>
+                <option value="Beawar"></option>
+                <option value="Bharatpur"></option>
+                <option value="Bhilwara"></option>
+                <option value="Bhiwadi"></option>
+                <option value="Bikaner"></option>
+                <option value="Bongaigaon"></option>
+                <option value="Boranada"></option>
+                <option value="Jodhpur"></option>
+                <option value="Chittaurgarh"></option>
+                <option value="Fazilka"></option>
+                <option value="Ganganagar"></option>
+                <option value="Jaipur"></option>
+                <option value="Jaipur-Kanakpura"></option>
+                <option value="Jaipur-Sitapura"></option>
+                <option value="Jaisalmer"></option>
+                <option value="Jodhpur"></option>
+                <option value="Jodhpur-Bhagat Ki Kothi"></option>
+                <option value="Jodhpur-Thar"></option>
+                <option value="Kardhan"></option>
+                <option value="Kota"></option>
+                <option value="Munabao Rail Station"></option>
+                <option value="Nagaur"></option>
+                <option value="Rajsamand"></option>
+                <option value="Sawaimadhopur"></option>
+                <option value="Shahdol"></option>
+                <option value="Shimoga"></option>
+                <option value="Tonk"></option>
+                <option value="Udaipur"></option>
+                <option value="Amritsar"></option>
+                <option value="Barnala"></option>
+                <option value="Bathinda"></option>
+                <option value="Firozpur"></option>
+                <option value="Faridkot"></option>
+                <option value="Fatehgarh Sahib"></option>
+                <option value="Fazilka"></option>
+                <option value="Gurdaspur"></option>
+                <option value="Hoshiarpur"></option>
+                <option value="Jalandhar"></option>
+                <option value="Kapurthala"></option>
+                <option value="Ludhiana"></option>
+                <option value="Mansa"></option>
+                <option value="Moga"></option>
+                <option value="Sri Muktsar Sahib"></option>
+                <option value="Pathankot"></option>
+                <option value="Patiala"></option>
+                <option value="Rupnagar"></option>
+                <option value="Ajitgarh (Mohali)"></option>
+                <option value="Sangrur"></option>
+                <option value="Shahid Bhagat Singh Nagar"></option>
+                <option value="Tarn Taran"></option>
+                <option value="Dimapur"></option>
+                <option value="Kiphire"></option>
+                <option value="Kohima"></option>
+                <option value="Longleng"></option>
+                <option value="Mokokchung"></option>
+                <option value="Mon"></option>
+                <option value="Peren"></option>
+                <option value="Phek"></option>
+                <option value="Tuensang"></option>
+                <option value="Wokha"></option>
+                <option value="Zunheboto"></option>
+                <option value="Bahabal Pur"></option>
+                <option value="Bhubaneswar"></option>
+                <option value="Chandbali"></option>
+                <option value="Gopalpur"></option>
+                <option value="Jeypore"></option>
+                <option value="Paradip Garh"></option>
+                <option value="Puri"></option>
+                <option value="Rourkela"></option>
+                <option value="Karaikal"></option>
+                <option value="Mahe"></option>
+                <option value="Pondicherry"></option>
+                <option value="Yanam"></option>
+
+
+                </datalist>
+            </div><!-- /col -->
+
+            <div class="col-sm-4 xs col-md-4 col-lg-4">
+                <label class="required">Jop Applied For? </label>
+
+                <select name="jobprofile" id="job_profile" class="form-control">
+                    <option value=""disabled selected>Job profile</option>
+                    <option value="android">Android Development</option>
+                    <option value="web">Web Development</option>
+                </select>
+            
+            </div><!-- /col -->
+
+        </div><!-- /row -->
+
+        <!-- 5th Row -->
+        <div class="row d-flex justify-content-center my-2">
+            
+            <div class="col-sm-4 xs col-md-4 col-lg-4">
+                <label class="required">Technical Skills </label>
+                <div class="containerSkills form-control col">       
+                    <div id="skills" class="skills" name='skills'>
+                      <!-- "Node Js", "Mango DB", "Java Script", "Android Developer", "Web Developer", "React Native", "Networking", "Power programmer", "HTML" -->
+                      <!-- <input id="input_tagator1" name="input_tagator1" placeholder="Please input some tags"> -->
+                      <input id="myInput" id="skills" list="sug" name = "skills" placeholder="Type Skills followed by comma(,) "  class="skills" class="myInput">
+                      <datalist id="sug">
+                          <option value="Android Developer">
+                          <option value="Web Developer">
+                          <option value="NodeJS">
+                          <option value="Java">
+                          <option value="MongoDB">
+                          <option value="Java Script">
+                          <option value="React Native">
+                          <option value="Networking">
+                          <option value="Power programmer">
+                          <option value="HTML">
+                          <option value='Cybersecurity'>
+                          <option value='Network setup'>
+                          <option value='Programming languages'>
+                          <option value='Network architecture'>
+                          <option value='Network security'>
+                          <option value='Front-end development'>
+                          <option value='Back-end development'>
+                          <option value='Cloud computing'>
+                          <option value='User experience design'>
+                          <option value='User interface design'>
+                          <option value='Cloud migration'>
+                          <option value='SQL software'>
+                          <option value='Operating systems'>
+                          <option value='Software'>
+                          <option value='Software development'>
+                          <option value='Data modeling'>
+                          <option value='Data security'>
+                          <option value='DevOps'>
+                          <option value='Mobile app development'>
+                          <option value='IT management'>
+                          <option value='Data migration'>
+                          <option value='Database administration'>
+                          <option value='Cloud management'>
+                          <option value='Systems Analysis'>
+                          <option value='Data Mining'>
+                          <option value='Troubleshooting'>
+                          <option value='Cloud architecture'>
+                          <option value='Project management'>
+                          <option value='Customer support'>
+                          <option value='Debugging'>
+                          <option value='Experience with types of hardware'>
+                          <option value='AutoCAD'>
+                          <option value='Data Science'>
+                          <option value='Encryption'>
+                          <option value='Game development'>
+                          <option value='Gamification'>
+                          <option value='Graphic design'>
+                          <option value='Workflow automation'>
+                          <option value='Customer relationship management, CRM'>
+                          <option value='Robotics'>
+                          <option value='Backup and recovery'>
+                          <option value='Batch processing'>
+                          <option value='Deploying applications in a cloud environment'>
+                          <option value='Information systems'>
+                          <option value='Integration of open source technology'>
+                          <option value='Artificial intelligence'>
+                          <option value='Database auditing'>
+                          <option value='NoSQL databases'>
+                          <option value='Service Desk'>
+                          <option value='Machine Learning'>
+                      </datalist>
+                    </div>
+              </div>
+            </div>
+            
+
+            <div class="col-sm-4 xs col-md-4 col-lg-4 ">
+                <label class="required">Resume</label><span class="text-info text-end"></span>
+                <label class="btn bg-white me-1 form-control text-primary" >
+                    <i class="fa fa-upload text-primary"></i>&nbsp<span id="resname">Upload Resume</span>&nbsp
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16" id="check">
+                    <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+                    </svg>
+                    <input type="file" accept=".doc,.docx,.pdf" style="display: none" name="file" id="resume">
+                </label>
+            </div><!-- /col -->
+            
+            <div class="col-sm-4 xs col-md-4 col-lg-4 ">
+                <label class="required">How do you know about the company? </label>
+                <span class="col-sm-12 xs col-sm-12 col-lg-12">
+                    <select id="about" name="about" class="form-control" required>
+                    <option value="default" disabled selected>Source</option>
+                    <option value="Friends">Friends</option>
+                    <option value="Advertisement">Advertisement</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="By-Reference">By Reference</option>
+                    <option value="other">Other</option>
+                    </select>
+                    <input type="text" class="form-control " placeholder="Enter the Source ..." id="other_reference">
+                    <input class="form-check-input" type="checkbox" value="1" id="back_to_select">
+                    <label class="form-check-label" for="back_to_select" id="back_to_select_text">
+                    Select from drop-down
+                    </label>
+                </span>
+            </div>
+        </div>
+
+      
+    
+        <!-- 6th Row -->
+      
+
+        <div class="d-flex justify-content-center my-2">
+            <div id="grecaptcha" name="grecaptcha" class="g-recaptcha"
+            data-sitekey="6Lc0yQEbAAAAAG0FcJoGxoKTOP4Kv4nBQwTo4tbb" required>
+            </div>
+        </div>
+        <!-- 7TH Row -->
+        <div class="row d-flex justify-content-center align-items-center text-center my-2">
+            <div class="col-sm-4 xs col-md-4 col-lg-2">
+            <button type="submit" name ="submit" id="submit" value="Submit" class="btn bt btn-primary rounded-pill"> Submit </button>
+            </div>
+            <div class="col-sm-4 xs col-md-4 col-lg-2">
+            <button type="reset" name ="reset" id="reset" value="Reset" class="btn bt btn-primary rounded-pill"> Clear </button>
+            </div>
+        </div>
+    
+    </div><!-- /container -->
+  </form>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="./index.js"></script>
+<script>
+    // function validate_mail(){
+    //     var form = document.getElementById('form')
+    //     var pattern=/^[^]+@[^]+\.[A-Z]{2,3}$/
+    //     let mailId = document.getElementById('email').value;
+    //     if(mailId.match(pattern)){
+    //         form.classList.add("valid")
+    //         form.classList.remove("invalid")
+    //     }else{
+    //         form.classList.remove("valid")
+    //         form.classList.add("invalid")
+    //     }
+    //     // if(mailId == ""){
+    //     //     form.classList.remove("valid")
+    //     //     form.classList.remove("invalid")
+    //     // }
+    // }
+    $(function() {
+      $('#exp').on('input', function(){
+        this.value = this.value
+                    .replace(/[^\d.]/g, '$1')            
+                    .replace(/(^[\d]{2})[\d]/g, '$1')
+      })
+      $('.percent').on('input', function() {
+            if(this.value>100){
+                this.value=0
+            }else if(this.value!=100){                  
+                this.value = this.value
+                    .replace(/[^\d.]/g, '$1')            
+                    .replace(/(^[\d]{2})[\d]/g, '$1')   
+                    .replace(/(\..*)\./g, '$1')         
+                    .replace(/(\.[\d]{2})./g, '$1');    
+            }
+      });
+    });
+    $(function() {
+      $('.name').on('input', function() {
+         var c = this.selectionStart,
+        r = /[^a-z .]/gi,
+        v = $(this).val();
+        if(r.test(v)) {
+            $(this).val(v.replace(r, ''));
+            c--;
+        }
+        this.setSelectionRange(c, c);
+      });
+    });
+    </script>
+
+</html>

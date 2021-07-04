@@ -1,0 +1,124 @@
+@media(max-width:577px){
+  .xs{
+    width:80%;
+    padding: 3px;
+  }
+  .im{
+    width:20%;
+    padding: 0 2px;
+  }
+  .bt{
+    width: 60%;
+    padding:5px;
+  }
+  .bx{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 8px;
+  }
+}
+  
+@media(max-width:992px){
+  .bx{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 8px;
+  } 
+  
+}
+
+  .required:before{
+    content: '*';
+    color:red;
+  }
+  
+
+  .containerSkills {
+      display: inline-block;        
+      max-width:420px;
+      overflow: auto;
+           
+  }
+
+
+  .skills {
+      /* border: 2px solid lightskyblue; */
+      /* padding: 10px; */
+      /* border-radius: 45px; */
+      /* display: flex; */
+      /* line-height: 20px; */
+      /* block-overflow: [clip | ellipsis | ];
+      max-lines: [];  */
+      /* resize:none ; */
+      /* overflow: auto; */
+      /* border: 1px solid #abadb3; */
+      /* border-radius: 3px; */
+      /* box-sizing: border-box; */
+      background-color: #fff;
+      display: list-item;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      text-decoration: none;
+        
+  }
+
+  .skills .tag {
+    display: inline-block;
+    /* background-color: #39f; */
+    /* border-radius: 2px; */
+    /* color: #fff; */
+    /* padding: 2px 20px 2px 4px; */
+    font-size: 13px;
+    /* margin: 2px; */
+    position: relative;
+    vertical-align: top;
+    padding: .1rem 1rem;
+    border: 1px solid lightblue;
+    margin: 5px;
+    /* display: flex; */
+    /* align-items: center; */
+    border-radius: 10px;
+    background: white;
+    cursor: default;
+    text-decoration: none;
+  }
+
+  .skills .tag:hover {
+    background: rgba(16, 168, 219, 0.138);
+    text-decoration: none;
+}
+
+  .tag i {
+    font-size: 16px;
+    margin-left: 5px;
+    font-weight: bold;
+    color:rgb(255, 1, 1);
+    font-family:'Courier New', Courier, monospace;
+    text-decoration: none;
+}
+
+  .skills input {
+      /* flex: 1; */
+      display: block;
+      /* font-size: 16px; */
+      font-size: 1rem;
+      /* padding: 5px; */
+      width: 400px;
+      outline: none;
+      border: 0; 
+      resize:none;  
+      text-decoration: none;
+  }
+  
+
+  .material-icons {
+      padding-bottom: .1rem;
+      padding-left: .5rem;
+  }
+
+  .material-icons :hover {
+      /* color: red; */
+      cursor: pointer;
+  }
