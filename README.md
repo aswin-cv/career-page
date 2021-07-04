@@ -3,6 +3,8 @@ Usage:
 Run server.js file  -->  nodemon start
 
 if package error occurs use  npm install which will automatically retrieve all packages ,if not use rpm install package_name .
+Add your mongodb URL to the file.
+AD your captcha secret Key.
 
 localHost Routes
 
