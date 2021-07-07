@@ -25,13 +25,13 @@ used gridfs to store data as chunk in db which has no size limit.
 
 
 Credits:
-Aswin CV 
-Godwin U
-Gowtham S
-Sanjeevi K
-Savitha  V
-Vignaesh RB
-Yeshvanth N
+Aswin CV,
+Godwin U,
+Gowtham S,
+Sanjeevi K,
+Savitha  V,
+Vignaesh RB,
+Yeshvanth N,
 
 
 
